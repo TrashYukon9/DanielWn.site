@@ -1,0 +1,320 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== FUNDO GERAL ===== */
+body {
+    display: flex;
+    background-color: #0f0f0f;
+    color: #eaeaea;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 220px;
+    background-color: #111;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+}
+
+.logo {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: white;
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.conteudo {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 40px 60px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") center/cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.hero-text {
+    background-color: rgba(0,0,0,0.6);
+    padding: 15px 25px;
+    border-radius: 5px;
+}
+
+/* ===== SEÇÕES (CARDS) ===== */
+.section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px 0;
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-left: 4px solid #0cc90c;
+    border-bottom: 1px solid #333;
+}
+
+/* ===== BOTÃO ===== */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: #a50000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #eb4444;
+}
+
+/* ===== HABILIDADES ===== */
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill-bar {
+    background-color: #333;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.skill-level {
+    height: 10px;
+    background-color: #0cc90c;
+    border-radius: 5px;
+}
+
+/* ===== PROJETOS ===== */
+.projeto {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 4px solid #a50000;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+    padding: 20px;
+    color: #888;
+}
+
+/* ===== REDES SOCIAIS ===== */
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #4da6ff;
+    margin: 0 10px;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #1e90ff;
+    transform: scale(1.2);
+}
+
+/* ===== BOTÃO TEMA ===== */
+.theme-btn {
+    margin-top: 20px;
+    padding: 8px;
+    background: #4da6ff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* ========================= */
+/* 🌞 MODO CLARO */
+/* ========================= */
+
+.light-mode {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+.light-mode .sidebar {
+    background-color: #e4e4e4;
+}
+
+.light-mode .sidebar a {
+    color: #111;
+}
+
+.light-mode .sidebar a:hover {
+    color: #000;
+}
+
+.light-mode .section {
+    background: #ffffff;
+    color: #111;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+}
+
+.light-mode .section h2 {
+    background-color: #ddd;
+    border-left: 4px solid #4da6ff;
+}
+
+.light-mode .projeto {
+    background-color: #ffffff;
+    border-left: 4px solid #4da6ff;
+}
+
+.light-mode .skill-bar {
+    background-color: #ccc;
+}
+
+.light-mode footer {
+    color: #333;
+}
+
+.light-mode .social-icons a {
+    color: #0077ff;
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    padding: 15px 10px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .conteudo {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .hero {
+    height: 180px;
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-text h1 {
+    font-size: 22px;
+  }
+
+  .section {
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  .section h2 {
+    font-size: 20px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+.projeto a{
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.projeto a:hover{
+  color: white;
+}
+
+.light-mode .projeto a{
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
+
+}
+
+.light-mode .projeto a:hover{
+    color: gray;
+}
+
+.toast {
+  position: fixed;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #056305;
+  color: #000;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: top 0.5s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  top: 30px;
+}
+
+.light-mode .toast {
+  background: #4da6ff;
+  color: #fff;
+}
