@@ -71,6 +71,7 @@ body {
     border-radius: 5px;
 }
 
+
 /* ===== SEÇÕES (CARDS) ===== */
 .section {
     width: 100%;
@@ -170,7 +171,7 @@ footer {
 }
 
 /* ========================= */
-/* 🌞 MODO CLARO */
+/*  MODO CLARO */
 /* ========================= */
 
 .light-mode {
@@ -187,7 +188,7 @@ footer {
 }
 
 .light-mode .sidebar a:hover {
-    color: #000;
+    color: gray;
 }
 
 .light-mode .section {
@@ -218,8 +219,16 @@ footer {
     color: #0077ff;
 }
 
+.light-mode .pg-principal{
+    color: #111;
+}
+
+.light-mode .pg-principal:hover{
+    color: gray;
+}
+
 /* ========================= */
-/* 📱 MOBILE */
+/*  MOBILE */
 /* ========================= */
 
 @media (max-width: 768px) {
@@ -317,4 +326,54 @@ footer {
 .light-mode .toast {
   background: #4da6ff;
   color: #fff;
+}
+
+.pg-principal{
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.pg-principal:hover{
+    color: white;
+}
+
+footer.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal, .reveal-left, .reveal-right{
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.reveal{
+    transform: translateY(40px);
+}
+
+.reveal-left{
+    transform: translateX(-60px);
+}
+
+.reveal-right{
+    transform: translateX(60px);
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active{
+    opacity: 1;
+    transform: translate(0,0);
 }
