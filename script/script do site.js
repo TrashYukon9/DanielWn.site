@@ -21,8 +21,7 @@ function revelarElementos() {
   elementos.forEach(el => {
     const posicao = el.getBoundingClientRect().top;
     const alturaTela = window.innerHeight;
-
-    // Se o elemento estiver visível OU já começou na tela
+    
     if (posicao < alturaTela - 100) {
       el.classList.add('active');
     }

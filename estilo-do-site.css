@@ -219,11 +219,11 @@ footer {
     color: #0077ff;
 }
 
-.light-mode .pg-principal{
+.light-mode .pg-principal {
     color: #111;
 }
 
-.light-mode .pg-principal:hover{
+.light-mode .pg-principal:hover {
     color: gray;
 }
 
