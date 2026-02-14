@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa do site</title>
+     <link rel="stylesheet" href="estilo-do-site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="imagens/WhatsApp Image 2026-01-27 at 20.51.20.jpeg">
+</head>
+<body>
+    <!-- Barrinha lateral -->
+ <aside class="sidebar">
+    <h2 class="logo">Winicius Daniel</h2>
+    
+    <br>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" id="inicio">Início</a></li>
+        <li><a href="apresentação.html">Apresentação</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="mapa.html">Mapa do site</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <button onclick="toggleTheme()" class="theme-btn">🌙 Tema</button>
+    </nav>
+  </aside>
+
+  <!-- Mapa do site -->
+   <main class="conteudo">
+    <section class="section reveal">
+        <h2 class="mapa">Mapa do site</h2>
+        
+        <p>Clique e veja!</p>
+        <a href="index.html" class="mapa" onclick="mostrarToast(event)">Página Inicial</a><br>
+        <a href="apresentação.html" class="mapa">Apresentação do autor</a><br>
+        <a href="projetos.html" class="mapa">Projetos criados</a><br>
+        <a href="contato.html" class="mapa">Contato do autor</a><br>
+            
+    </section>
+   </main>
+  <script src="script/script do site.js"></script>
+    <div id="toast" class="toast">Indo para o início!</div>
+</body>
+</html>

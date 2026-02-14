@@ -135,6 +135,17 @@ body {
     border-left: 4px solid #a50000;
 }
 
+/* ===== MAPA ===== */
+.mapa a{
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.mapa a:hover{
+    color: white;
+}
+
 /* ===== RODAPÉ ===== */
 footer {
     padding: 20px;
@@ -301,7 +312,7 @@ footer {
 }
 
 .light-mode .projeto a:hover{
-    color: gray;
+    color: rgb(100, 97, 97);
 }
 
 .toast {
@@ -329,13 +340,12 @@ footer {
 }
 
 .pg-principal{
-    color: #ccc;
-    text-decoration: none;
+    color: #ffffff;
     transition: 0.3s;
 }
 
 .pg-principal:hover{
-    color: white;
+    color: rgb(70, 69, 69);
 }
 
 footer.reveal{
