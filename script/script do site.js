@@ -1,7 +1,13 @@
 console.log("site carregando com sucesso!")
 
 function toggleTheme() {
-    document.body.classList.toggle("light-mode");
+  document.documentElement.classList.toggle("light-mode");
+
+  if (document.documentElement.classList.contains("light-mode")) {
+    localStorage.setItem("theme", "light");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
 }
 
 function mostrarToast(event) {

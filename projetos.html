@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projetos</title>
+    <script>
+      if (localStorage.getItem("theme") === "light") {
+        document.documentElement.classList.add("light-mode");
+      }
+    </script>
     <link rel="stylesheet" href="estilo-do-site.css" />
     <link
       rel="stylesheet"
@@ -55,7 +60,7 @@
           target="_blank"
           class="projeto reveal-right"
         >
-        <span>Clique aqui e confira!</span>
+          <span>Clique aqui e confira!</span>
           <h3>Projeto 2 - To-do List</h3>
           <p>Aplicação web focada na gerência de tarefas usando React.js.</p>
         </a>

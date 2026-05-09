@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tyk.daniwn</title>
+    <script>
+        const temaSalvo = localStorage.getItem("theme");
+
+        if (temaSalvo === "light"){
+            document.documentElement.classList.add("light-mode");
+        }
+    </script>
     <link rel="stylesheet" href="estilo-do-site.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/png" href="imagens/WhatsApp Image 2026-01-27 at 20.51.20.jpeg">
