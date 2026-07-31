@@ -1,114 +1,727 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tyk.daniwn</title>
+
+    <title>Winicius Daniel | Portfólio</title>
+    <meta
+        name="description"
+        content="Portfólio de Winicius Daniel, estudante de Ciência da Computação e desenvolvedor em formação."
+    >
+
     <script>
-        const temaSalvo = localStorage.getItem("theme");
+        (() => {
+            const savedTheme = localStorage.getItem("portfolio-theme");
+            const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
 
-        if (temaSalvo === "light"){
-            document.documentElement.classList.add("light-mode");
-        }
+            if (savedTheme === "light" || (!savedTheme && prefersLight)) {
+                document.documentElement.classList.add("light-mode");
+            }
+        })();
     </script>
+
     <link rel="stylesheet" href="estilo-do-site.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="imagens/WhatsApp Image 2026-01-27 at 20.51.20.jpeg">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+    >
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="imagens/WhatsApp Image 2026-01-27 at 20.51.20.jpeg"
+    >
 </head>
+
 <body>
+    <div class="progress-bar" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
 
- <!-- Barrinha lateral -->
- <aside class="sidebar">
-    <h2 class="logo">Winicius Daniel</h2>
-    
-    <br>
-
-    <nav>
-      <ul>
-        <li><a href="index.html" id="inicio">Início</a></li>
-        <li><a href="apresentação.html">Apresentação</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="mapa.html">Mapa do site</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <button onclick="toggleTheme()" class="theme-btn">🌙 Tema</button>
-
-    </nav>
-  </aside>
-
-  <!-- cabeçalho -->
-  <main class="conteudo">
-
-    <header class="hero reveal">
-        <div class="hero-text">
-            <h1>Winicius Daniel Gomes de Souza</h1>
-            <p>Estudante de TI • Desenvolvedor Web</p>
-        </div>
-    </header>
-
-    <!-- sobre mim -->
-    <section class="section reveal">
-        
-        <h2>Sobre mim</h2>
-       
-        <p>Sou estudante de análise e desenvolvimento de sistemas, altamente interessado em propostas e oportunidades para estágio ou emprego na área de tecnologia. </p>       
-        <br>
-
-        <ul class="reveal">
-        <p>Desenvolvendo projetos.</p>
-        <p>Interesse em desenvolvimento de software e desenvolvimento web.</p>
-        <p>Sempre à disposição para aprender!</p>
-        <p>Site produzido de forma autônoma.</p>
-      </ul>
-
-      <br>
-        <p>Baixe meu Currículo abaixo!</p>
-        <a href="imagens/Currículo TI - Winicius Daniel (Atualizado)  (1).pdf" download class="btn reveal">Baixar Currículo</a>
-
-    </section>
-
-<!-- habilidades -->
-    <section  id="habilidades" class="section reveal">
-        
-        <h2>Habilidades</h2>
-
-        <div class="skill reveal-right">
-            <p>HTML</p>
-            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
-        </div>
-
-        <div class="skill reveal-right">
-            <p>CSS</p>
-            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
-        </div>
-
-        <div class="skill reveal-left">
-            <p>JavaScript</p>
-            <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
-        </div>
-
-    </section>
-
-    <!-- contato -->
-    <section id="contato" class="section reveal">
-        <h2>Contato</h2>
-        <p>Email: winidrk@gmail.com</p>
-    </section>
-
-    <!-- rodape -->
-    <footer>
-    <p>© 2026 - Winicius Daniel</p>
-    <div class="social-icons">
-    <a href="https://instagram.com/tyk.daniwn" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/5511984316278" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://twitter.com/Trashyukon9" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://linkedin.com/in/winicius-daniel-89b4a7279" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="background-effects" aria-hidden="true">
+        <div class="bg-light light-1"></div>
+        <div class="bg-light light-2"></div>
+        <div class="gradient"></div>
+        <div class="grid"></div>
+        <div id="particles-js"></div>
     </div>
-    </footer>
-  </main>
+
+    <nav class="navbar" aria-label="Navegação principal">
+        <a class="logo" href="#inicio" aria-label="Ir para o início" onclick="mostrarToast(event, 'Volando ao início...')">
+            <span class="logo-green">WD</span>
+            <span class="logo-white">Portfolio</span>
+        </a>
+
+        <ul class="nav-links" id="primary-navigation">
+            <li><a href="#inicio" onclick="mostrarToast(event)">Home</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#tecnologias">Stack</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button
+                class="theme-btn"
+                id="theme-toggle"
+                type="button"
+                aria-label="Ativar modo claro"
+                title="Ativar modo claro"
+            >
+                <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-controls="primary-navigation"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="conteudo">
+        <section class="hero reveal" id="inicio">
+            <div class="hero-left">
+                <span class="hero-tag">Olá, seja bem-vindo(a)!</span>
+
+                <div class="typed-line" aria-live="polite">
+                    <span class="typed-text"></span>
+                </div>
+
+                <h1>
+                    Winicius
+                    <span>Daniel</span>
+                </h1>
+
+                <p class="hero-description">
+                    Estudante de Ciência da Computação e desenvolvedor em formação,
+                    criando interfaces modernas, responsivas e focadas na experiência
+                    do usuário.
+                </p>
+
+                <div class="hero-buttons">
+                    <a class="btn" href="#projetos">
+                        Ver projetos
+                    </a>
+
+                    <a
+                        class="btn secondary-btn"
+                        href="#contato"
+                    >
+                        Contato
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-photo">
+                    <div class="photo-glow" aria-hidden="true"></div>
+
+                    <img
+                        src="imagens/4076a2dde4ba7346c402b48c833dbbc8.jpg"
+                        alt="Foto de Winicius Daniel"
+                    >
+
+                    <div class="tech python">
+                        <span class="parallax">Python</span>
+                    </div>
+
+                    <div class="tech html">
+                        <span class="parallax">HTML</span>
+                    </div>
+
+                    <div class="tech css">
+                        <span class="parallax">CSS</span>
+                    </div>
+
+                    <div class="tech js">
+                        <span class="parallax">JavaScript</span>
+                    </div>
+
+                    <div class="tech java">
+                        <span class="parallax">Java</span>
+                    </div>
+
+                    <div class="tech git">
+                        <span class="parallax">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section reveal" id="sobre">
+            <div class="section-title">
+                <span>Sobre mim</span>
+                <h2>Quem sou eu?</h2>
+            </div>
+
+            <div class="about-layout">
+                <div class="about-description">
+                    <p>
+                        Sou estudante de
+                        <strong>Ciência da Computação</strong>,
+                        apaixonado por criar aplicações modernas, intuitivas
+                        e com foco na experiência do usuário.
+                    </p>
+
+                    <p>
+                        Meu principal objetivo é conquistar minha primeira
+                        oportunidade profissional na área enquanto continuo
+                        evoluindo através de projetos próprios.
+                    </p>
+
+                    <p>
+                        Estou sempre estudando novas tecnologias, boas práticas
+                        de desenvolvimento e buscando transformar ideias em
+                        soluções reais.
+                    </p>
+
+                    <a
+                        class="btn"
+                        href="imagens/Currículo TI - Winicius Daniel (definitivo).pdf"
+                        download
+                        onclick="mostrarToast(event, 'Baixando Currículo...')"
+                    >
+                        Baixar currículo
+                    </a>
+                </div>
+
+                <div class="about-cards">
+                    <article class="info-card">
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+
+                        <div>
+                            <h3>Ciência da Computação</h3>
+                            <p>Universidade Cruzeiro do Sul</p>
+                        </div>
+                    </article>
+
+                    <article class="info-card">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+
+                        <div>
+                            <h3>São Paulo</h3>
+                            <p>Brasil</p>
+                        </div>
+                    </article>
+
+                    <article class="info-card">
+                        <i class="fa-solid fa-code" aria-hidden="true"></i>
+
+                        <div>
+                            <h3>Desenvolvimento Web</h3>
+                            <p>Front-end e software</p>
+                        </div>
+                    </article>
+
+                    <article class="info-card">
+                        <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
+
+                        <div>
+                            <h3>Projetos Autorais</h3>
+                            <p>Sempre evoluindo</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section reveal" aria-label="Resumo profissional">
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <h3>10+</h3>
+                    <span>Projetos desenvolvidos</span>
+                </article>
+
+                <article class="stat-card">
+                    <h3>10+</h3>
+                    <span>Tecnologias</span>
+                </article>
+
+                <article class="stat-card">
+                    <h3>2+</h3>
+                    <span>Anos programando</span>
+                </article>
+
+                <article class="stat-card available">
+                    <h3>Open</h3>
+                    <span>to Work</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="projects-section reveal" id="projetos">
+            <div class="section-title">
+                <span>Portfólio</span>
+                <h2>Projetos em destaque</h2>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <img
+                            src="imagens/Portifolio.png"
+                            alt="Prévia do site de portfólio"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+
+                        <p>
+                            Meu portfólio pessoal desenvolvido com HTML, CSS e
+                            JavaScript, focado em design moderno, responsividade
+                            e animações.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a
+                                class="btn secondary-btn"
+                                href="https://github.com/Trashyukon9/DanielWn.site"
+                                onclick="mostrarToast(event, 'Vamos para o GitHub do site!')"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                class="btn"
+                                href="index.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onclick="mostrarToast(event, 'Recarregando site!')"
+                            >
+                                Projeto
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-image">
+                        <img
+                            src="imagens/todolist.png"
+                            alt="Prévia da aplicação To Do List"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="project-content">
+                        <h3>To Do List</h3>
+
+                        <p>
+                            Aplicação desenvolvida em React para gerenciamento
+                            de tarefas, com foco em desempenho, organização e
+                            experiência do usuário.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>CSS</span>
+                        </div>
+
+                        <div class="project-buttons">
+                            <a
+                                class="btn secondary-btn"
+                                href="https://github.com/Trashyukon9/TodoList"
+                                onclick="mostrarToast(event, 'Redirecionando para GitHub da To do list!')"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                class="btn"
+                                href="https://trashyukon9.github.io/TodoList/"
+                                onclick="mostrarToast(event, 'Indo até To do List!')"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Projeto
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="skills-section reveal" id="tecnologias">
+            <div class="section-title">
+                <span>Stack</span>
+                <h2>Tecnologias</h2>
+            </div>
+
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <i class="fa-brands fa-html5" aria-hidden="true"></i>
+                    <h3>HTML5</h3>
+                    <p></p>
+                </article>
+
+                <article class="skill-card">
+                    <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+                    <h3>CSS3</h3>
+                    <p></p>
+                </article>
+
+                <article class="skill-card">
+                    <i class="fa-brands fa-js" aria-hidden="true"></i>
+                    <h3>JavaScript</h3>
+                    <p></p>
+                </article>
+
+                <article class="skill-card">
+                    <i class="fa-brands fa-java" aria-hidden="true"></i>
+                    <h3>Java</h3>
+                    <p></p>
+                </article>
+
+                <article class="skill-card">
+                    <i class="fa-brands fa-python" aria-hidden="true"></i>
+                    <h3>Python</h3>
+                    <p></p>
+                </article>
+
+                <article class="skill-card">
+                    <i class="fa-brands fa-git-alt" aria-hidden="true"></i>
+                    <h3>Git</h3>
+                    <p></p>
+                </article>
+            </div>
+        </section>
+
+      <!-- ================= CONTATO ================= -->
+
+<section class="contact-section reveal" id="contato">
+
+    <div class="contact-heading">
+
+        <span>CONTATO</span>
+
+        <h2>Vamos conversar?</h2>
+
+        <p>
+            Estou disponível para conversar sobre projetos,
+            oportunidades e novas ideias.
+        </p>
+
+    </div>
 
 
- <script src="script/script do site.js"></script>
- <div id="toast" class="toast">Recarregando o site!</div>
+    <div class="contact-layout">
+
+        <!-- Informações do lado esquerdo -->
+
+        <div class="contact-info">
+
+            <span class="contact-label">
+                ENTRE EM CONTATO
+            </span>
+
+            <h3>Tem algum projeto ou oportunidade em mente?</h3>
+
+            <p>
+                Envie uma mensagem pelo formulário ou entre em
+                contato diretamente comigo. Responderei assim
+                que possível.
+            </p>
+
+
+            <div class="contact-details">
+
+                <a
+                    href="mailto:winidrk@gmail.com"
+                    class="contact-detail"
+                >
+
+                    <span class="contact-detail-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+
+                    <span>
+                        <small>Email</small>
+                        <strong>winidrk@gmail.com</strong>
+                    </span>
+
+                </a>
+
+
+                <div class="contact-detail">
+
+                    <span class="contact-detail-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+
+                    <span>
+                        <small>Localização</small>
+                        <strong>São Paulo, Brasil</strong>
+                    </span>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <span class="contact-detail-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </span>
+
+                    <span>
+                        <small>Disponibilidade</small>
+                        <strong>Aberto a oportunidades</strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Formulário do lado direito -->
+
+        <form class="contact-form" id="contact-form">
+
+            <div class="form-row">
+
+                <div class="form-field">
+
+                    <label for="contact-name">
+                        Seu nome
+                    </label>
+
+                    <input
+                        type="text"
+                        id="contact-name"
+                        name="name"
+                        placeholder="Digite seu nome"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="contact-email">
+                        Seu email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="contact-email"
+                        name="email"
+                        placeholder="Digite seu email"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="contact-subject">
+                    Assunto
+                </label>
+
+                <input
+                    type="text"
+                    id="contact-subject"
+                    name="subject"
+                    placeholder="Sobre o que deseja conversar?"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label for="contact-message">
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="contact-message"
+                    name="message"
+                    placeholder="Escreva sua mensagem..."
+                    rows="6"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="contact-submit">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Enviar mensagem
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- Contatos menores embaixo -->
+
+    <div class="contact-socials">
+
+        <a
+            href="mailto:winidrk@gmail.com"
+            class="contact-social-link"
+        >
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <span>Email</span>
+
+        </a>
+
+
+        <a
+            href="https://linkedin.com/in/winicius-daniel-89b4a7279"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-social-link"
+        >
+
+            <i class="fa-brands fa-linkedin"></i>
+
+            <span>LinkedIn</span>
+
+        </a>
+
+
+        <a
+            href="https://github.com/Trashyukon9"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-social-link"
+        >
+
+            <i class="fa-brands fa-github"></i>
+
+            <span>GitHub</span>
+
+        </a>
+
+
+        <a
+            href="https://instagram.com/tyk.daniwn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-social-link"
+        >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <span>Instagram</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+        <footer>
+            <div class="footer-top">
+                <div>
+                    <h3>
+                        © <span id="current-year">2026</span> — Winicius Daniel
+                    </h3>
+
+                    <p>
+                        Criando experiências digitais com código, criatividade
+                        e atenção aos detalhes.
+                    </p>
+                </div>
+
+                <div class="social-icons">
+                    <a
+                        href="https://instagram.com/tyk.daniwn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                    >
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a
+                        href="https://wa.me/5511984316278"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp"
+                    >
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+
+                    <a
+                        href="https://twitter.com/Trashyukon9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="X"
+                    >
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+
+                    <a
+                        href="https://linkedin.com/in/winicius-daniel-89b4a7279"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <button
+        class="scroll-top"
+        type="button"
+        aria-label="Voltar ao topo"
+        title="Voltar ao topo"
+    >
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    >
+        Redirecionando...
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="script/script do site.js"></script>
 </body>
-</html> 
+</html>

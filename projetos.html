@@ -21,52 +21,163 @@
     />
   </head>
   <body>
+
+    <div class="background-effects">
+    <div class="cursor-glow"></div>
+    <div class="bg-light light-1"></div>
+    <div class="bg-light light-2"></div>
+    <div class="gradient"></div>
+    <div class="grid"></div>
+    <div id="particles-js"></div>
+
+        
+    </div>
     <!-- Barrinha lateral -->
-    <aside class="sidebar">
-      <h2 class="logo">Winicius Daniel</h2>
+<nav class="navbar">
 
-      <br />
+    <div class="logo">
+        <a href="index.html"><span class="logo-green">WD</span></a> 
+        <a href="index.html"><span class="logo-white">Portfolio</span></a>
+    </div>
 
-      <nav>
-        <ul>
-          <li><a href="index.html" id="inicio">Início</a></li>
-          <li><a href="apresentação.html">Apresentação</a></li>
-          <li><a href="projetos.html">Projetos</a></li>
-          <li><a href="mapa.html">Mapa do site</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-        <button onclick="toggleTheme()" class="theme-btn">🌙 Tema</button>
-      </nav>
-    </aside>
+  <ul class="nav-links">
 
-    <!-- projetos -->
-    <main class="conteudo">
-      <section id="projetos" class="section reveal">
-        <h2>Projetos</h2>
+        <li><a href="index.html">Home</a></li>
 
-        <div class="projeto reveal-left">
-          <a href="index.html" onclick="mostrarToast(event)"
-            >Clique aqui para ver!
-            <h3>Projeto 1 - Site pessoal</h3>
-            <p>
-              Site desenvolvido com as ferramentas: HTML 5, CSS 3 e JavaScript
-              para apresentação profissional.
-            </p>
-          </a>
+        <li><a href="projetos.html">Projetos</a></li>
+        
+        <li><a href="apresentação.html">Sobre</a></li>
+
+        <li><a href="contato.html">Contato</a></li>
+
+    </ul>
+
+    <button onclick="toggleTheme()" class="theme-btn">
+
+        <i class="fa-solid fa-moon"></i>
+
+    </button>
+
+</nav>
+
+<!-- ================= PROJETOS ================= -->
+
+<section id="projetos" class="projects-section reveal">
+
+    <div class="projects-header">
+
+        <span>PORTFÓLIO</span>
+
+        <h2>Meus Projetos</h2>
+
+        <p>Alguns projetos desenvolvidos durante meus estudos.</p>
+
+    </div>
+
+    <div class="projects-grid">
+
+        <!-- Projeto 1 -->
+
+        <div class="project-card">
+
+            <img src="imagens/Portifolio.png" alt="Portfolio Website">
+
+            <div class="project-content">
+
+                <h3>Portfolio Website</h3>
+
+                <p>
+                    Meu portfólio pessoal desenvolvido em HTML, CSS e
+                    JavaScript, com animações modernas, modo escuro
+                    e design responsivo.
+                </p>
+
+                <div class="project-tech">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+                <div class="project-buttons">
+
+                    <a href="SEU_GITHUB"
+                       target="_blank"
+                       class="btn secondary-btn">
+                        GitHub
+                    </a>
+
+                    <a href="index.html"
+                       target="_blank"
+                       class="btn"
+                       onclick="mostrarToast(event)"
+                       >
+                        Ver Projeto
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <a
-          href="https://trashyukon9.github.io/TodoList/"
-          target="_blank"
-          class="projeto reveal-right"
-        >
-          <span>Clique aqui e confira!</span>
-          <h3>Projeto 2 - To-do List</h3>
-          <p>Aplicação web focada na gerência de tarefas usando React.js.</p>
-        </a>
-      </section>
-    </main>
-    <script src="script/script do site.js"></script>
-    <div id="toast" class="toast">Recarregando o site!</div>
-  </body>
+        <!-- Projeto 2 -->
+
+        <div class="project-card">
+
+            <img src="imagens/todolist.png" alt="To Do List">
+
+            <div class="project-content">
+
+                <h3>To Do List</h3>
+
+                <p>
+                    Aplicação desenvolvida em React para gerenciamento
+                    de tarefas com interface moderna e experiência
+                    dinâmica para o usuário.
+                </p>
+
+                <div class="project-tech">
+
+                    <span>React</span>
+                    <span>CSS</span>
+
+                </div>
+
+                <div class="project-buttons">
+
+                    <a href="SEU_GITHUB"
+                       target="_blank"
+                       class="btn secondary-btn">
+                        GitHub
+                    </a>
+
+                    <a href="https://trashyukon9.github.io/TodoList/"
+                       target="_blank"
+                       class="btn">
+                        Ver Projeto
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+</main>
+
+<script src="script/script do site.js"></script>
+
+<div id="toast" class="toast">
+    Recarregando o site!
+</div>
+
+</body>
 </html>
