@@ -218,73 +218,6 @@ section{
 
 }
 
-/* ========================================= */
-/* PROJETOS */
-/* ========================================= */
-
-.projects-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-
-    gap:45px;
-
-}
-
-.project-card{
-
-    overflow:hidden;
-
-    border-radius:32px;
-
-    background:rgba(255,255,255,.05);
-
-    backdrop-filter:blur(22px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.45s;
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-12px);
-
-    border-color:var(--primary);
-
-}
-
-.project-image{
-
-    height:260px;
-
-}
-
-.project-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.project-content{
-
-    padding:34px;
-
-}
-
-.project-buttons{
-
-    display:flex;
-
-    gap:18px;
-
-}
 
 /* ========================================= */
 /* SKILLS */
@@ -1198,147 +1131,6 @@ ESTATÍSTICAS
 
 }
 
-/*==================================================
-PROJETOS
-==================================================*/
-
-.projects-section{
-
-    margin-top:140px;
-
-}
-
-.projects-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-
-    gap:42px;
-
-}
-
-.project-card{
-
-    overflow:hidden;
-
-    border-radius:32px;
-
-    background:rgba(255,255,255,.05);
-
-    backdrop-filter:blur(24px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    transition:.45s;
-
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-14px);
-
-    border-color:var(--primary);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.4),
-    0 0 40px rgba(34,197,94,.18);
-
-}
-
-.project-image{
-
-    overflow:hidden;
-
-    height:260px;
-
-}
-
-.project-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.5s;
-
-}
-
-.project-card:hover img{
-
-    transform:scale(1.06);
-
-}
-
-.project-content{
-
-    padding:34px;
-
-}
-
-.project-content h3{
-
-    font-size:30px;
-
-    margin-bottom:18px;
-
-}
-
-.project-content p{
-
-    color:var(--text-secondary);
-
-    line-height:1.9;
-
-    margin-bottom:28px;
-
-}
-
-.project-tech{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-bottom:30px;
-
-}
-
-.project-tech span{
-
-    padding:8px 18px;
-
-    border-radius:999px;
-
-    background:rgba(34,197,94,.08);
-
-    border:1px solid rgba(34,197,94,.18);
-
-    color:var(--primary);
-
-    font-size:14px;
-
-}
-
-.project-buttons{
-
-    display:flex;
-
-    gap:16px;
-
-}
-
-.project-buttons .btn{
-
-    flex:1;
-
-}
 
 /*==================================================
 SKILLS
@@ -3516,11 +3308,6 @@ TABLET E MENU MOBILE
     }
 
 
-    /* PROJETOS */
-
-    .projects-grid{
-        grid-template-columns:minmax(0,1fr);
-    }
 
 
     /* TECNOLOGIAS */
@@ -3975,9 +3762,557 @@ CELULARES
 }
 
 
+/* ==================================================
+   POLIMENTO DO CARROSSEL DE PROJETOS
+================================================== */
+
+.projects-carousel {
+    position: relative;
+overflow: visible;
+    width: 100%;
+
+    /* espaço para as setas respirarem */
+    padding-inline: 10px;
+
+    background: transparent !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* ==================================================
+   ÁREA DE ROLAGEM
+================================================== */
+
+.projects-section .projects-grid {
+    background: transparent !important;
+
+    border: none !important;
+    outline: none !important;
+
+    box-shadow: none !important;
+
+    /*
+    Espaço em cima/baixo para o hover e
+    sombra dos cards não ficarem apertados.
+    */
+    padding-top: 18px;
+    padding-bottom: 40px;
+
+    /* pequeno espaço lateral */
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+/* Garante que nada apareça atrás do carrossel */
+
+.projects-section .projects-grid::before,
+.projects-section .projects-grid::after {
+    background: transparent !important;
+}
+
+
+/* ==================================================
+   CARDS
+================================================== */
+
+.projects-section .project-card {
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28);
+
+    isolation: isolate;
+}
+
+
+/* ==================================================
+   SETAS
+================================================== */
+
+.project-arrow {
+    width: 54px;
+    height: 54px;
+
+    top: 50%;
+
+    border-radius: 50%;
+
+    z-index: 30;
+
+    background: rgba(14, 20, 16, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* joga as setas mais para fora */
+
+.project-arrow-left {
+    left: -42px;
+}
+
+.project-arrow-right {
+    right: -42px;
+}
+
+
+/* hover mais moderno */
+
+.project-arrow:hover:not(:disabled) {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: #071009;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 32px rgba(0, 0, 0, 0.28),
+        0 0 26px rgba(34, 197, 94, 0.20);
+}
+
+
+/* seta indisponível */
+
+.project-arrow:disabled {
+    opacity: 0.28;
+
+    cursor: default;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   MODO CLARO
+================================================== */
+
+/* =========================================
+   REMOVE FUNDO/BORDAS ATRÁS DOS PROJETOS
+   MODO CLARO
+========================================= */
+
+html.light-mode .projects-carousel,
+body.light-mode .projects-carousel,
+html.light-mode .projects-section .projects-grid,
+body.light-mode .projects-section .projects-grid {
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+/* remove qualquer efeito criado por pseudo-elementos */
+
+html.light-mode .projects-carousel::before,
+html.light-mode .projects-carousel::after,
+body.light-mode .projects-carousel::before,
+body.light-mode .projects-carousel::after,
+html.light-mode .projects-grid::before,
+html.light-mode .projects-grid::after,
+body.light-mode .projects-grid::before,
+body.light-mode .projects-grid::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* mantém SOMENTE os cards visíveis */
+
+html.light-mode .project-card,
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.92) !important;
+
+    border: 1px solid rgba(25, 60, 38, 0.10);
+
+    box-shadow:
+        0 18px 45px rgba(30, 55, 39, 0.10);
+}
+
+/* Cards */
+
+html.light-mode .project-card,
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.82);
+
+    border-color: rgba(25, 60, 38, 0.10);
+
+    box-shadow:
+        0 18px 45px rgba(30, 55, 39, 0.10);
+}
+
+
+/* Cards no hover */
+
+html.light-mode .project-card:hover,
+body.light-mode .project-card:hover {
+    background: rgba(255, 255, 255, 0.96);
+
+    border-color: rgba(22, 163, 74, 0.30);
+
+    box-shadow:
+        0 24px 55px rgba(30, 55, 39, 0.14),
+        0 0 30px rgba(22, 163, 74, 0.08);
+}
+
+
+/* Setas no modo claro */
+
+html.light-mode .project-arrow,
+body.light-mode .project-arrow {
+    color: #17251c;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(25, 60, 38, 0.12);
+
+    box-shadow:
+        0 10px 28px rgba(30, 55, 39, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+
+/* Hover */
+
+html.light-mode .project-arrow:hover:not(:disabled),
+body.light-mode .project-arrow:hover:not(:disabled) {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: #ffffff;
+
+    box-shadow:
+        0 12px 30px rgba(30, 55, 39, 0.16),
+        0 0 25px rgba(22, 163, 74, 0.18);
+}
+
+
+/* =========================================
+   RESPIRO NAS EXTREMIDADES DO CARROSSEL
+========================================= */
+
+.projects-section .projects-grid {
+    padding:
+        28px
+        30px
+        42px
+        30px !important;
+}
+
+.projects-section .project-card:first-child {
+    margin-left: 0 !important;
+}
+
+.projects-section .project-card:last-child {
+    margin-right: 0 !important;
+}
+
+/* ==================================================
+   PADRONIZAÇÃO DOS CARDS DE PROJETOS
+================================================== */
+
+.projects-section .project-card {
+    display: flex;
+    flex-direction: column;
+
+    height: auto;
+}
+
+
+/* imagem sempre com a mesma proporção */
+
+.projects-section .project-image {
+    flex: 0 0 260px;
+
+    width: 100%;
+    height: 260px;
+}
+
+
+.projects-section .project-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   CONTEÚDO
+================================================== */
+
+.projects-section .project-content {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 34px;
+}
+
+
+/* título */
+
+.projects-section .project-content h3 {
+    font-size: 30px;
+    line-height: 1.2;
+
+    /*
+    reserva espaço para até 2 linhas,
+    mesmo nos títulos menores
+    */
+    min-height: 72px;
+
+    margin-bottom: 18px;
+}
+
+
+/* descrição */
+
+.projects-section .project-content p {
+    font-size: 15px;
+    line-height: 1.9;
+
+    color: var(--text-secondary);
+
+    /*
+    todos terão a mesma área para descrição
+    */
+    min-height: 86px;
+
+    margin-bottom: 26px;
+}
+
+
+/* ==================================================
+   TECNOLOGIAS
+================================================== */
+
+.projects-section .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    gap: 10px;
+
+    /*
+    mantém a área das tecnologias
+    proporcional em todos os cards
+    */
+    min-height: 46px;
+
+    margin-bottom: 28px;
+}
+
+
+.projects-section .project-tech span {
+    display: inline-flex;
+    align-items: center;
+
+    height: 32px;
+
+    padding: 0 16px;
+
+    border-radius: 999px;
+}
+
+
+/* ==================================================
+   BOTÕES SEMPRE NO FINAL
+================================================== */
+
+.projects-section .project-buttons {
+    display: flex;
+
+    gap: 16px;
+
+    width: 100%;
+
+    /*
+    ESSA É A PARTE MAIS IMPORTANTE
+    empurra os botões para o final do card
+    */
+    margin-top: auto;
+}
+
+
+.projects-section .project-buttons .btn {
+    flex: 1;
+
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+
 /*==================================================
 CELULARES PEQUENOS
 ==================================================*/
+
+
+/* ==================================================
+   DESKTOP MENOR
+================================================== */
+
+@media (max-width: 1350px) {
+
+    .project-arrow-left {
+        left: -22px;
+    }
+
+    .project-arrow-right {
+        right: -22px;
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .projects-carousel {
+        padding-inline: 0;
+    }
+
+   .projects-section .project-image {
+        flex-basis: 230px;
+        height: 230px;
+    }
+
+    .projects-section .project-content {
+        padding: 24px;
+    }
+
+    .projects-section .project-content h3 {
+        min-height: auto;
+
+        font-size: 25px;
+    }
+
+    .projects-section .project-content p {
+        min-height: auto;
+
+        font-size: 14px;
+    }
+
+    .projects-section .project-tech {
+        min-height: auto;
+    }
+
+}
+
+    .project-arrow {
+        display: none;
+    }
+
+
+    /* =========================================
+   SETAS DESATIVADAS DO CARROSSEL
+========================================= */
+
+.project-arrow {
+    opacity: 1;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.project-arrow.is-disabled,
+.project-arrow:disabled {
+    opacity: 0.20 !important;
+
+    pointer-events: none;
+
+    cursor: default;
+}
+
+
+/* evita efeito hover quando estiver desativada */
+
+.project-arrow.is-disabled:hover,
+.project-arrow:disabled:hover {
+    transform: translateY(-50%) !important;
+
+    background: inherit;
+
+    box-shadow: none;
+}
+
+/* =========================================
+   ESTADO DAS SETAS DO CARROSSEL
+========================================= */
+
+.project-arrow {
+    opacity: 1;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.project-arrow.is-disabled,
+.project-arrow:disabled {
+    opacity: 0.18 !important;
+
+    cursor: default;
+
+    pointer-events: none;
+}
+
+
+/* modo claro */
+
+html.light-mode .project-arrow.is-disabled,
+html.light-mode .project-arrow:disabled,
+body.light-mode .project-arrow.is-disabled,
+body.light-mode .project-arrow:disabled {
+    opacity: 0.22 !important;
+}
+
 
 @media(max-width:390px){
 
@@ -4117,6 +4452,285 @@ DISPOSITIVOS TOUCH
 
     .cursor-glow{
         display:none;
+    }
+
+}
+
+/*==================================================
+PROJETOS — CARROSSEL HORIZONTAL
+Bloco definitivo: manter no final do arquivo
+==================================================*/
+
+.projects-section{
+    margin-top:140px;
+}
+
+.projects-carousel{
+    position:relative;
+    width:100%;
+    min-width:0;
+}
+
+.projects-section .projects-grid{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    width:100%;
+    min-width:0;
+    gap:28px;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-inline:contain;
+    padding:12px 4px 30px;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    -webkit-overflow-scrolling:touch;
+}
+
+.projects-section .projects-grid::-webkit-scrollbar{
+    display:none;
+}
+
+.projects-section .project-card{
+    flex:0 0 calc(50% - 14px) !important;
+    width:calc(50% - 14px) !important;
+    min-width:calc(50% - 14px) !important;
+    max-width:none !important;
+    margin:0 !important;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    overflow:hidden;
+    border-radius:32px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.projects-section .project-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--primary);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.4),
+        0 0 40px rgba(34,197,94,.16);
+}
+
+.projects-section .project-image{
+    width:100%;
+    height:260px;
+    overflow:hidden;
+}
+
+.projects-section .project-image img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.projects-section .project-card:hover .project-image img{
+    transform:scale(1.04);
+}
+
+.projects-section .project-content{
+    padding:34px;
+}
+
+.projects-section .project-content h3{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.projects-section .project-content p{
+    color:var(--text-secondary);
+    line-height:1.9;
+    margin-bottom:28px;
+}
+
+.projects-section .project-tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:30px;
+}
+
+.projects-section .project-tech span{
+    padding:8px 18px;
+    border-radius:999px;
+    background:rgba(34,197,94,.08);
+    border:1px solid rgba(34,197,94,.18);
+    color:var(--primary);
+    font-size:14px;
+}
+
+.projects-section .project-buttons{
+    display:flex;
+    gap:16px;
+}
+
+.projects-section .project-buttons .btn{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.project-arrow{
+    position:absolute;
+    top:50%;
+    z-index:20;
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    background:rgba(13,18,15,.92);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    font-size:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+    transform:translateY(-50%);
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+.project-arrow:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#071009;
+    transform:translateY(-50%) scale(1.08);
+}
+
+.project-arrow-left{ left:-26px; }
+.project-arrow-right{ right:-26px; }
+
+:where(html.light-mode, body.light-mode) .project-arrow{
+    color:var(--text);
+    background:rgba(255,255,255,.92);
+    border-color:var(--border);
+    box-shadow:0 12px 30px rgba(29,54,37,.12);
+}
+
+:where(html.light-mode, body.light-mode) .project-arrow:hover{
+    color:#fff;
+    background:var(--primary);
+    border-color:var(--primary);
+}
+
+@media(max-width:768px){
+    .projects-section .projects-grid{
+        gap:18px !important;
+        padding-inline:2px;
+    }
+
+    .projects-section .project-card{
+        flex:0 0 88% !important;
+        width:88% !important;
+        min-width:88% !important;
+    }
+
+    .projects-section .project-image{
+        height:clamp(190px,55vw,250px);
+    }
+
+    .projects-section .project-content{
+        padding:24px;
+    }
+
+    .projects-section .project-content h3{
+        font-size:25px;
+        margin-bottom:13px;
+    }
+
+    .projects-section .project-content p{
+        font-size:14px;
+        line-height:1.75;
+        margin-bottom:20px;
+    }
+
+    .projects-section .project-tech{
+        gap:8px;
+        margin-bottom:22px;
+    }
+
+    .projects-section .project-tech span{
+        padding:7px 12px;
+        font-size:12px;
+    }
+
+    .projects-section .project-buttons{
+        gap:10px;
+    }
+
+    .projects-section .project-buttons .btn{
+        padding:12px 14px;
+        font-size:13px;
+    }
+
+    .project-arrow{
+        display:none !important;
+    }
+}
+
+@media(max-width:390px){
+    .projects-section .project-card{
+        flex:0 0 94% !important;
+        width:94% !important;
+        min-width:94% !important;
+    }
+
+    .projects-section .project-content{
+        padding:20px;
+    }
+}
+
+@media(hover:none), (pointer:coarse){
+    .projects-section .project-card:hover{
+        transform:none;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .projects-section .project-card {
+        flex: 0 0 94% !important;
+
+        width: 94% !important;
+        min-width: 94% !important;
+    }
+
+    .projects-section .projects-grid {
+        gap: 14px !important;
+
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .projects-section .project-card {
+        flex: 0 0 96% !important;
+
+        width: 96% !important;
+        min-width: 96% !important;
     }
 
 }

@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     initCursorGlow();
     initHeroParallax();
     initTiltEffect();
+
+    /* CARROSSEL */
+    initProjectCarousel();
+
     initAOS();
     updateFooterYear();
 
@@ -759,28 +763,6 @@ function initHeroParallax() {
 
 }
 
-    heroPhoto.addEventListener(
-        "mouseleave",
-        () => {
-
-            parallaxElements.forEach(element => {
-
-                element.style.setProperty(
-                    "--tx",
-                    "0px"
-                );
-
-                element.style.setProperty(
-                    "--ty",
-                    "0px"
-                );
-
-            });
-
-        }
-    );
-
-
 /*==================================================
 EFEITO 3D NOS CARDS
 ==================================================*/
@@ -988,3 +970,421 @@ ${message}`
     });
 
 });
+
+/*==================================================
+CARROSSEL DE PROJETOS
+==================================================*/
+
+/*==================================================
+CARROSSEL DE PROJETOS
+==================================================*/
+
+function initProjectCarousel() {
+
+    const projectsGrid =
+        document.querySelector(".projects-grid");
+
+    const previousButton =
+        document.querySelector(".project-arrow-left");
+
+    const nextButton =
+        document.querySelector(".project-arrow-right");
+
+
+    if (
+        !projectsGrid ||
+        !previousButton ||
+        !nextButton
+    ) {
+        console.warn(
+            "Carrossel de projetos não encontrado."
+        );
+
+        return;
+    }
+
+
+    /*==================================================
+    TAMANHO DO SCROLL
+    ==================================================*/
+
+    function getScrollAmount() {
+
+        const card =
+            projectsGrid.querySelector(".project-card");
+
+        if (!card) {
+            return 0;
+        }
+
+
+        const gridStyles =
+            window.getComputedStyle(projectsGrid);
+
+
+        const gap =
+            parseFloat(gridStyles.columnGap) ||
+            parseFloat(gridStyles.gap) ||
+            0;
+
+
+        return (
+            card.getBoundingClientRect().width +
+            gap
+        );
+
+    }
+
+
+    /*==================================================
+    ATUALIZA ESTADO DAS SETAS
+    ==================================================*/
+
+    function updateArrows() {
+
+        const maxScroll =
+            projectsGrid.scrollWidth -
+            projectsGrid.clientWidth;
+
+
+        const tolerance = 5;
+
+
+        const isAtStart =
+            projectsGrid.scrollLeft <= tolerance;
+
+
+        const isAtEnd =
+            projectsGrid.scrollLeft >=
+            maxScroll - tolerance;
+
+
+        previousButton.disabled =
+            isAtStart;
+
+
+        nextButton.disabled =
+            isAtEnd;
+
+
+        previousButton.setAttribute(
+            "aria-disabled",
+            String(isAtStart)
+        );
+
+
+        nextButton.setAttribute(
+            "aria-disabled",
+            String(isAtEnd)
+        );
+
+    }
+
+
+    /*==================================================
+    SETA DIREITA
+    ==================================================*/
+
+    nextButton.addEventListener(
+        "click",
+        () => {
+
+            const amount =
+                getScrollAmount();
+
+
+            projectsGrid.scrollBy({
+
+                left: amount,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+    /*==================================================
+    SETA ESQUERDA
+    ==================================================*/
+
+    previousButton.addEventListener(
+        "click",
+        () => {
+
+            const amount =
+                getScrollAmount();
+
+
+            projectsGrid.scrollBy({
+
+                left: -amount,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+    /*==================================================
+    ATUALIZA AO ROLAR
+    ==================================================*/
+
+    projectsGrid.addEventListener(
+        "scroll",
+        updateArrows,
+        {
+            passive: true
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        updateArrows
+    );
+
+
+    /*==================================================
+    RODINHA DO MOUSE
+    ==================================================*/
+
+    projectsGrid.addEventListener(
+        "wheel",
+        event => {
+
+            const hasHorizontalScroll =
+                projectsGrid.scrollWidth >
+                projectsGrid.clientWidth;
+
+
+            if (!hasHorizontalScroll) {
+                return;
+            }
+
+
+            /*
+            Se estiver usando trackpad e o movimento
+            já for horizontal, deixa o navegador cuidar.
+            */
+
+            if (
+                Math.abs(event.deltaX) >
+                Math.abs(event.deltaY)
+            ) {
+                return;
+            }
+
+
+            const maxScroll =
+                projectsGrid.scrollWidth -
+                projectsGrid.clientWidth;
+
+
+            const goingRight =
+                event.deltaY > 0;
+
+
+            const goingLeft =
+                event.deltaY < 0;
+
+
+            const canGoRight =
+                projectsGrid.scrollLeft <
+                maxScroll - 2;
+
+
+            const canGoLeft =
+                projectsGrid.scrollLeft > 2;
+
+
+            if (
+                (goingRight && canGoRight) ||
+                (goingLeft && canGoLeft)
+            ) {
+
+                event.preventDefault();
+
+
+                projectsGrid.scrollBy({
+
+                    left: event.deltaY,
+
+                    behavior: "auto"
+
+                });
+
+            }
+
+        },
+        {
+            passive: false
+        }
+    );
+
+
+    /*==================================================
+    ARRASTAR COM O MOUSE
+    ==================================================*/
+
+    const canDrag =
+        window.matchMedia(
+            "(hover: hover) and (pointer: fine)"
+        ).matches;
+
+
+    if (canDrag) {
+
+        let isDragging = false;
+
+        let startX = 0;
+
+        let initialScrollLeft = 0;
+
+
+        /*==============================================
+        COMEÇA O DRAG
+        ==============================================*/
+
+        projectsGrid.addEventListener(
+            "pointerdown",
+            event => {
+
+                /*
+                Não arrasta quando clicar
+                nos botões GitHub / Projeto.
+                */
+
+                if (
+                    event.target.closest(
+                        "a, button"
+                    )
+                ) {
+                    return;
+                }
+
+
+                isDragging = true;
+
+
+                startX =
+                    event.clientX;
+
+
+                initialScrollLeft =
+                    projectsGrid.scrollLeft;
+
+
+                projectsGrid.classList.add(
+                    "is-dragging"
+                );
+
+
+                projectsGrid.setPointerCapture(
+                    event.pointerId
+                );
+
+            }
+        );
+
+
+        /*==============================================
+        MOVIMENTO
+        ==============================================*/
+
+        projectsGrid.addEventListener(
+            "pointermove",
+            event => {
+
+                if (!isDragging) {
+                    return;
+                }
+
+
+                const distance =
+                    event.clientX -
+                    startX;
+
+
+                projectsGrid.scrollLeft =
+                    initialScrollLeft -
+                    distance;
+
+            }
+        );
+
+
+        /*==============================================
+        TERMINA O DRAG
+        ==============================================*/
+
+        function stopDragging(event) {
+
+            if (!isDragging) {
+                return;
+            }
+
+
+            isDragging = false;
+
+
+            projectsGrid.classList.remove(
+                "is-dragging"
+            );
+
+
+            if (
+                event?.pointerId !== undefined &&
+                projectsGrid.hasPointerCapture(
+                    event.pointerId
+                )
+            ) {
+
+                projectsGrid.releasePointerCapture(
+                    event.pointerId
+                );
+
+            }
+
+        }
+
+
+        projectsGrid.addEventListener(
+            "pointerup",
+            stopDragging
+        );
+
+
+        projectsGrid.addEventListener(
+            "pointercancel",
+            stopDragging
+        );
+
+
+        projectsGrid.addEventListener(
+            "lostpointercapture",
+            () => {
+
+                isDragging = false;
+
+
+                projectsGrid.classList.remove(
+                    "is-dragging"
+                );
+
+            }
+        );
+
+    }
+
+
+    /*==================================================
+    ESTADO INICIAL
+    ==================================================*/
+
+    updateArrows();
+
+}

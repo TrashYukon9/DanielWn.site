@@ -269,160 +269,321 @@
             </div>
         </section>
 
-        <section class="projects-section reveal" id="projetos">
-            <div class="section-title">
-                <span>Portfólio</span>
-                <h2>Projetos em destaque</h2>
-            </div>
+<!-- ==================================================
+     PROJETOS
+================================================== -->
 
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <img
-                            src="imagens/Portifolio.png"
-                            alt="Prévia do site de portfólio"
-                            loading="lazy"
-                        >
-                    </div>
+<section class="projects-section reveal" id="projetos">
 
-                    <div class="project-content">
-                        <h3>Portfolio Website</h3>
+    <div class="section-title">
+        <span>PORTFÓLIO</span>
+        <h2>Projetos em destaque</h2>
+    </div>
 
-                        <p>
-                            Meu portfólio pessoal desenvolvido com HTML, CSS e
-                            JavaScript, focado em design moderno, responsividade
-                            e animações.
-                        </p>
 
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                        </div>
+    <div class="projects-carousel">
 
-                        <div class="project-buttons">
-                            <a
-                                class="btn secondary-btn"
-                                href="https://github.com/Trashyukon9/DanielWn.site"
-                                onclick="mostrarToast(event, 'Vamos para o GitHub do site!')"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-                            </a>
+        <!-- SETA ESQUERDA -->
+        <button
+            class="project-arrow project-arrow-left"
+            type="button"
+            aria-label="Projeto anterior"
+        >
+            <i
+                class="fa-solid fa-chevron-left"
+                aria-hidden="true"
+            ></i>
+        </button>
 
-                            <a
-                                class="btn"
-                                href="index.html"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onclick="mostrarToast(event, 'Recarregando site!')"
-                            >
-                                Projeto
-                            </a>
-                        </div>
-                    </div>
-                </article>
 
-                <article class="project-card">
-                    <div class="project-image">
-                        <img
-                            src="imagens/todolist.png"
-                            alt="Prévia da aplicação To Do List"
-                            loading="lazy"
-                        >
-                    </div>
+        <!-- CARROSSEL -->
+        <div class="projects-grid">
 
-                    <div class="project-content">
-                        <h3>To Do List</h3>
 
-                        <p>
-                            Aplicação desenvolvida em React para gerenciamento
-                            de tarefas, com foco em desempenho, organização e
-                            experiência do usuário.
-                        </p>
+            <!-- ========================================
+                 PROJETO 01 - PORTFÓLIO
+            ========================================= -->
 
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>CSS</span>
-                        </div>
+            <article class="project-card">
 
-                        <div class="project-buttons">
-                            <a
-                                class="btn secondary-btn"
-                                href="https://github.com/Trashyukon9/TodoList"
-                                onclick="mostrarToast(event, 'Redirecionando para GitHub da To do list!')"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                GitHub
-                            </a>
+                <div class="project-image">
 
-                            <a
-                                class="btn"
-                                href="https://trashyukon9.github.io/TodoList/"
-                                onclick="mostrarToast(event, 'Indo até To do List!')"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Projeto
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="project-card">
-                    <div class="project-image">
-                        <img 
-                        src="imagens/Captura de tela 2026-08-28 225126.png" 
-                        alt="Prévia Cube-Lab"
+                    <img
+                        src="imagens/Portifolio.png"
+                        alt="Prévia do site de portfólio"
                         loading="lazy"
-                        >
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>Portfolio Website</h3>
+
+                    <p>
+                        Meu portfólio pessoal desenvolvido com HTML,
+                        CSS e JavaScript, focado em design moderno,
+                        responsividade e animações.
+                    </p>
+
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+
+                        <span>CSS</span>
+
+                        <span>JavaScript</span>
+
                     </div>
 
-                    <div class="project-content">
-                        <h3>Experiência Interativa 3D - Cubo Mágico</h3>
 
-                        <p>Aplicação desenvolvida em React, TypeScript e CSS. 
-                            Desenvolvida para ser um desafio divertido e interativo com aplicações 3D e 
-                            interface moderna.
-                        </p>
+                    <div class="project-buttons">
 
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>TypeScript</span>
-                            <span>CSS</span>
-                        </div>
-
-                        <div class="project-buttons">
-                            <a 
+                        <a
                             class="btn secondary-btn"
-                            href="https://github.com/TrashYukon9/Cube-Lab"
-                            onclick="mostrarToast(event, 'Redirecionando até GitHub do Cube-Lab!')"
+                            href="https://github.com/Trashyukon9/DanielWn.site"
+                            onclick="mostrarToast(
+                                event,
+                                'Vamos para o GitHub do site!'
+                            )"
                             target="_blank"
                             rel="noopener noreferrer"
-                            >
-                            GitHub
-                            </a>
+                        >
+                            <i
+                                class="fa-brands fa-github"
+                                aria-hidden="true"
+                            ></i>
 
-                            <a 
+                            GitHub
+                        </a>
+
+
+                        <a
+                            class="btn"
+                            href="index.html"
+                            onclick="mostrarToast(
+                                event,
+                                'Recarregando site!'
+                            )"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"
+                            ></i>
+
+                            Projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 PROJETO 02 - TO DO LIST
+            ========================================= -->
+
+            <article class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="imagens/todolist.png"
+                        alt="Prévia da aplicação To Do List"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>To Do List</h3>
+
+                    <p>
+                        Aplicação desenvolvida em React para
+                        gerenciamento de tarefas, com foco em
+                        desempenho, organização e experiência
+                        do usuário.
+                    </p>
+
+
+                    <div class="project-tech">
+
+                        <span>React</span>
+
+                        <span>JavaScript</span>
+
+                        <span>CSS</span>
+
+                        <span>Vite</span>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            class="btn secondary-btn"
+                            href="https://github.com/Trashyukon9/TodoList"
+                            onclick="mostrarToast(
+                                event,
+                                'Redirecionando para o GitHub da To Do List!'
+                            )"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i
+                                class="fa-brands fa-github"
+                                aria-hidden="true"
+                            ></i>
+
+                            GitHub
+                        </a>
+
+
+                        <a
+                            class="btn"
+                            href="https://trashyukon9.github.io/TodoList/"
+                            onclick="mostrarToast(
+                                event,
+                                'Indo até a To Do List!'
+                            )"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"
+                            ></i>
+
+                            Projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- ========================================
+                 PROJETO 03 - CUBE-LAB
+            ========================================= -->
+
+            <article class="project-card">
+
+                <div class="project-image">
+
+                    <img
+                        src="imagens/Captura de tela 2026-08-28 225126.png"
+                        alt="Prévia da aplicação Cube-Lab"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <h3>
+                        Experiência Interativa 3D — Cubo Mágico
+                    </h3>
+
+
+                    <p>
+                        Aplicação desenvolvida em React,
+                        TypeScript e CSS, criada para oferecer
+                        uma experiência divertida e interativa
+                        com elementos 3D e uma interface moderna.
+                    </p>
+
+
+                    <div class="project-tech">
+
+                        <span>React</span>
+
+                        <span>TypeScript</span>
+
+                        <span>CSS</span>
+
+                        <span>Three.js</span>
+
+                    </div>
+
+
+                    <div class="project-buttons">
+
+                        <a
+                            class="btn secondary-btn"
+                            href="https://github.com/TrashYukon9/Cube-Lab"
+                            onclick="mostrarToast(
+                                event,
+                                'Redirecionando para o GitHub do Cube-Lab!'
+                            )"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i
+                                class="fa-brands fa-github"
+                                aria-hidden="true"
+                            ></i>
+
+                            GitHub
+                        </a>
+
+
+                        <a
                             class="btn"
                             href="https://trashyukon9.github.io/Cube-Lab/"
-                            onclick="mostrarToast(event, 'Indo para Cube-Lab!')"
+                            onclick="mostrarToast(
+                                event,
+                                'Indo para o Cube-Lab!'
+                            )"
                             target="_blank"
-                            rel="noopener noreferrer"                            
-                            
-                            >
-                            Projeto
-                            </a>
-                        
-                        </div>
-                    </div>
-                    </div>
-                </article>
-            </div>
-        </section>
+                            rel="noopener noreferrer"
+                        >
+                            <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                aria-hidden="true"
+                            ></i>
 
+                            Projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+        <!-- FIM PROJECTS-GRID -->
+
+
+        <!-- SETA DIREITA -->
+        <button
+            class="project-arrow project-arrow-right"
+            type="button"
+            aria-label="Próximo projeto"
+        >
+            <i
+                class="fa-solid fa-chevron-right"
+                aria-hidden="true"
+            ></i>
+        </button>
+
+    </div>
+    <!-- FIM PROJECTS-CAROUSEL -->
+
+</section>
         <section class="skills-section reveal" id="tecnologias">
             <div class="section-title">
                 <span>Stack</span>
