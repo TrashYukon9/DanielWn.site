@@ -697,33 +697,28 @@ PARALLAX DAS TECNOLOGIAS
 
 function initHeroParallax() {
 
-    const heroPhoto =
-        document.querySelector(".hero-photo");
-
-    const parallaxElements =
-        document.querySelectorAll(
-            ".hero-photo .tech .parallax"
-        );
+    const techItems = document.querySelectorAll(".hero-photo .tech");
 
     const canUseParallax =
         window.matchMedia(
             "(hover: hover) and (pointer: fine)"
         ).matches;
 
-    if (
-        !heroPhoto ||
-        !parallaxElements.length ||
-        !canUseParallax
-    ) {
+    if (!techItems.length || !canUseParallax) {
         return;
     }
 
-    heroPhoto.addEventListener(
-        "mousemove",
-        event => {
+    techItems.forEach((tech) => {
 
-            const bounds =
-                heroPhoto.getBoundingClientRect();
+        const parallax = tech.querySelector(".parallax");
+
+        if (!parallax) {
+            return;
+        }
+
+        tech.addEventListener("mousemove", (event) => {
+
+            const bounds = tech.getBoundingClientRect();
 
             const centerX =
                 bounds.left + bounds.width / 2;
@@ -731,35 +726,38 @@ function initHeroParallax() {
             const centerY =
                 bounds.top + bounds.height / 2;
 
-            const normalizedX =
+            const x =
                 (event.clientX - centerX) /
                 (bounds.width / 2);
 
-            const normalizedY =
+            const y =
                 (event.clientY - centerY) /
                 (bounds.height / 2);
 
-            parallaxElements.forEach(
-                (element, index) => {
+            const intensity = 5;
 
-                    const intensity =
-                        7 + index * 1.4;
-
-                    element.style.setProperty(
-                        "--tx",
-                        `${normalizedX * intensity}px`
-                    );
-
-                    element.style.setProperty(
-                        "--ty",
-                        `${normalizedY * intensity}px`
-                    );
-
-                }
+            parallax.style.setProperty(
+                "--tx",
+                `${x * intensity}px`
             );
 
-        }
-    );
+            parallax.style.setProperty(
+                "--ty",
+                `${y * intensity}px`
+            );
+
+        });
+
+        tech.addEventListener("mouseleave", () => {
+
+            parallax.style.setProperty("--tx", "0px");
+            parallax.style.setProperty("--ty", "0px");
+
+        });
+
+    });
+
+}
 
     heroPhoto.addEventListener(
         "mouseleave",
@@ -781,8 +779,6 @@ function initHeroParallax() {
 
         }
     );
-
-}
 
 
 /*==================================================
